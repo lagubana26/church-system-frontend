@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+}
+
+@layer components {
+  /* Buttons — strictly black & white. Weight (solid vs outline) carries
+     hierarchy instead of color. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-medium
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-black;
+  }
+  .btn-gold {
+    @apply btn bg-ink text-paper hover:bg-black;
+  }
+  .btn-outline {
+    @apply btn border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper;
+  }
+  .btn-danger {
+    @apply btn border border-ink text-ink bg-transparent hover:bg-ink hover:text-paper;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  /* Inputs */
+  .field-label {
+    @apply block text-sm font-medium text-ink-soft mb-1;
+  }
+  .input {
+    @apply w-full rounded-sm border border-line bg-white px-3 py-2 text-sm text-ink
+           placeholder:text-ink-soft/50 focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink;
+  }
+  .select {
+    @apply input;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white border border-line rounded-sm;
+  }
+  .card-accent {
+    @apply card border-l-4;
+  }
+
+  /* Status pill */
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 text-xs font-medium;
+  }
+  .pill-dot {
+    @apply h-1.5 w-1.5 rounded-full;
+  }
+
+  /* Links */
+  .link {
+    @apply text-ink underline decoration-ink/30 underline-offset-2 hover:decoration-ink transition-colors;
+  }
+
+  /* Table */
+  .data-table {
+    @apply w-full text-left text-sm border-collapse;
+  }
+  .data-table th {
+    @apply border-b-2 border-ink px-3 py-2 text-xs font-semibold uppercase tracking-wide text-ink-soft;
+  }
+  .data-table td {
+    @apply border-b border-line px-3 py-2.5 text-ink;
+  }
+  .data-table tbody tr:hover {
+    @apply bg-black/[0.02];
+  }
+}
